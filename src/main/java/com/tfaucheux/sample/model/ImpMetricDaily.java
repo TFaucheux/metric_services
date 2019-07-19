@@ -60,9 +60,10 @@ public class ImpMetricDaily implements java.io.Serializable
    //
    private BigDecimal                    origSystemRefId;
    private String                        origSystemRefCd;
-   private BigDecimal                    fkProjectTrackerId;
+   private Long                          fkProjectTrackerId;
    private String                        metricValue;
    private String                        metricText;
+/*
    private String                        text0;
    private String                        text1;
    private String                        text2;
@@ -74,7 +75,7 @@ public class ImpMetricDaily implements java.io.Serializable
    private String                        text8;
    private String                        text9;
    private String                        text10;
-   private Long                          projectId;
+*/
    private String                        projectType;
    private String                        fkClientSourceCd;
    private String                        fkProductTypeCd;
@@ -104,6 +105,16 @@ public class ImpMetricDaily implements java.io.Serializable
    private Date                          clientDueDate;
    private Date                          assignmentDueDate;
    private Double                        annualRevenuePotential;
+   // new fields
+   private Long                          projectId;
+   private Long                          numGeos;
+   private Long                          numLocs;
+   private Long                          numTas;
+   private String                        methAnalysis;
+   private String                        radProduct;
+   private String                        source;
+   private String                        fieldName;
+   private String                        parentCategory;
 
    // Default Constructor
    public ImpMetricDaily() {
@@ -230,10 +241,10 @@ public class ImpMetricDaily implements java.io.Serializable
      this.origSystemRefCd = origSystemRefCd;
    }
    @Column(name="Fk_Project_Tracker_Id", unique=false, nullable=true)
-   public BigDecimal getFkProjectTrackerId() {
+   public Long getFkProjectTrackerId() {
      return this.fkProjectTrackerId;
    }
-   public void setFkProjectTrackerId(BigDecimal fkProjectTrackerId) {
+   public void setFkProjectTrackerId(Long fkProjectTrackerId) {
      this.fkProjectTrackerId = fkProjectTrackerId;
    }
    @Column(name="Metric_Value", unique=false, nullable=true)
@@ -250,6 +261,7 @@ public class ImpMetricDaily implements java.io.Serializable
    public void setMetricText(String metricText) {
      this.metricText = metricText;
    }
+/*
    @Column(name="Text_0", unique=false, nullable=true)
    public String getText0() {
      return this.text0;
@@ -327,13 +339,7 @@ public class ImpMetricDaily implements java.io.Serializable
    public void setText10(String text10) {
      this.text10 = text10;
    }
-   @Column(name="project_id", unique=false, nullable=true)
-   public Long getProjectId() {
-     return this.projectId;
-   }
-   public void setprojectId(Long projectId) {
-     this.projectId = projectId;
-   }
+*/
    @Column(name="Project_type", unique=false, nullable=true)
    public String getProjectType() {
      return this.projectType;
@@ -536,6 +542,69 @@ public class ImpMetricDaily implements java.io.Serializable
    }
    public void setAnnualRevenuePotential(Double annualRevenuePotential) {
      this.annualRevenuePotential = annualRevenuePotential;
+   }
+   @Column(name="project_id", unique=false, nullable=true)
+   public Long getProjectId() {
+     return this.projectId;
+   }
+   public void setProjectId(Long projectId) {
+     this.projectId = projectId;
+   }
+   @Column(name="num_geos", unique=false, nullable=true)
+   public Long getNumGeos() {
+     return this.numGeos;
+   }
+   public void setNumGeos(Long numGeos) {
+     this.numGeos = numGeos;
+   }
+   @Column(name="num_locs", unique=false, nullable=true)
+   public Long getNumLocs() {
+     return this.numLocs;
+   }
+   public void setNumLocs(Long numLocs) {
+     this.numLocs = numLocs;
+   }
+   @Column(name="num_tas", unique=false, nullable=true)
+   public Long getNumTas() {
+     return this.numTas;
+   }
+   public void setNumTas(Long numTas) {
+     this.numTas = numTas;
+   }
+   @Column(name="meth_analysis", unique=false, nullable=true)
+   public String getMethAnalysis() {
+     return this.methAnalysis;
+   }
+   public void setMethAnalysis(String methAnalysis) {
+     this.methAnalysis = methAnalysis;
+   }
+   @Column(name="rad_product", unique=false, nullable=true)
+   public String getRadProduct() {
+     return this.radProduct;
+   }
+   public void setRadProduct(String radProduct) {
+     this.radProduct = radProduct;
+   }
+   @Column(name="source", unique=false, nullable=true)
+   public String getSource() {
+     return this.source;
+   }
+   public void setSource(String source) {
+     this.source = source;
+   }
+   @Column(name="fieldname", unique=false, nullable=true)
+   public String getFieldName() {
+     return this.fieldName;
+   }
+   public void setFieldName(String fieldName) {
+     this.fieldName = fieldName;
+   }
+   @Column(name="parent_category", unique=false, nullable=true)
+   public String getParentCategory() {
+     return this.parentCategory;
+   }
+   public void setParentCategory(String parentCategory) {
+     this.parentCategory = parentCategory;
    }
  
    // -----------------------------------------------------------------
